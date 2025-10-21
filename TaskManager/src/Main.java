@@ -4,7 +4,7 @@ public class Main {
     public static void main(String[] args){
         Scanner sc = new Scanner(System.in);
         System.out.println("    To-Do List    ");
-
+        TaskManager manager = new TaskManager();
         while (true) {
             System.out.println("1. Добавить задачу");
             System.out.println("2. Показать задачи");
@@ -15,7 +15,7 @@ public class Main {
             System.out.println("7. Выход");
             String cmd = sc.nextLine();
             switch (cmd) {
-                case "1": break;
+                case "1": manager.addTask(sc); break;
                 case "2": break;
                 case "3": break;
                 case "4": break;
