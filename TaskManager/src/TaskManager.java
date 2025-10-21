@@ -1,9 +1,13 @@
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
-import java.util.Scanner;
+import java.util.*;
 
 public class TaskManager {
+
+    private final List<Task> tasks;
+    public TaskManager() { this.tasks = new ArrayList<>(); }
+    public List<Task> getTasks() { return tasks; }
 
     public void addTask(Scanner sc) {
         System.out.print("Название: ");
@@ -11,15 +15,14 @@ public class TaskManager {
         System.out.print("Описание: ");
         String description = sc.nextLine();
 
-        String dur = "";
+        String duration = "";
         while (true) {
             System.out.print("Срок (ДД.ММ.ГГГГ ЧЧ:ММ): ");
-            dur = sc.nextLine();
-            if (isValidDate(dur)) {
+            duration = sc.nextLine();
+            if (isValidDate(duration)) {
                 break;
-            }
-            else {
-                System.out.print("Неверный формат. Пропробуйте ещё раз");
+            } else {
+                System.out.print("Неверный формат. Пропробуйте ещё раз\n");
             }
         }
 
@@ -37,6 +40,7 @@ public class TaskManager {
             }
         }
 
+        tasks.add(new Task(title, description, duration, priority));
         System.out.println("Задача добавлена успешно!");
     }
 
