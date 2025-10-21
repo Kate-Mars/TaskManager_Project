@@ -24,4 +24,5 @@ public class Task {
     public void setDescription(String description) { this.description = description; }
     public void setDate(String date) { this.date = date; }
     public void setPriority(int priority) { this.priority = priority; }
+
 }
