@@ -25,4 +25,11 @@ public class Task {
     public void setDate(String date) { this.date = date; }
     public void setPriority(int priority) { this.priority = priority; }
 
+    @Override
+    public String toString() {
+        return String.format(
+                "Название: %s | Описание: %s | Срок: %s | Приоритет: %d",
+                title, description, date, priority
+        );
+    }
 }

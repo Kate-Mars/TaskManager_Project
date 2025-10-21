@@ -44,6 +44,18 @@ public class TaskManager {
         System.out.println("Задача добавлена успешно!");
     }
 
+    public void showTasks() {
+        List<Task> tasks = getTasks();
+        if (tasks.isEmpty()) {
+            System.out.println("Задач нет");
+            return;
+        }
+        System.out.println("Список задач: ");
+        for (int i = 0; i < tasks.size(); i++) {
+            System.out.println((i + 1) + ". " + tasks.get(i).toString());
+        }
+    }
+
     private boolean isValidDate(String date) {
         return parseDate(date) != null;
     }

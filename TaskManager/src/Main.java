@@ -16,7 +16,7 @@ public class Main {
             String cmd = sc.nextLine();
             switch (cmd) {
                 case "1": manager.addTask(sc); break;
-                case "2": break;
+                case "2": manager.showTasks(); break;
                 case "3": break;
                 case "4": break;
                 case "5": break;
