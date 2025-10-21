@@ -9,7 +9,7 @@ public class TaskManager {
         System.out.print("Название: ");
         String title = sc.nextLine();
         System.out.print("Описание: ");
-        String descript = sc.nextLine();
+        String description = sc.nextLine();
 
         String dur = "";
         while (true) {
@@ -22,7 +22,22 @@ public class TaskManager {
                 System.out.print("Неверный формат. Пропробуйте ещё раз");
             }
         }
-        
+
+        int priority = 0;
+        while (true) {
+            System.out.print("Приоритет (1-5): ");
+            try {
+                priority = Integer.parseInt(sc.nextLine());
+                if (priority >= 1 && priority <= 5) {
+                    break;
+                }
+                System.out.println("Приоритет - число от 1 до 5");
+            } catch (NumberFormatException e) {
+                System.out.println("Введите числовое значение от 1 до 5");
+            }
+        }
+
+        System.out.println("Задача добавлена успешно!");
     }
 
     private boolean isValidDate(String date) {
