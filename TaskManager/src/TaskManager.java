@@ -4,10 +4,9 @@ import java.time.format.DateTimeParseException;
 import java.util.*;
 
 public class TaskManager {
-
-    private final List<Task> tasks;
-    public TaskManager() { this.tasks = new ArrayList<>(); }
-    public List<Task> getTasks() { return tasks; }
+    private final User currentUser;
+    public TaskManager(User currentUser) { this.currentUser = currentUser; }
+    public List<Task> getTasks() { return currentUser.getTasks(); }
 
     public void addTask(Scanner sc) {
         System.out.print("Название: ");
@@ -40,7 +39,7 @@ public class TaskManager {
             }
         }
 
-        tasks.add(new Task(title, description, duration, priority));
+        currentUser.addTask(new Task(title, description, duration, priority));
         System.out.println("Задача добавлена успешно!");
     }
 
@@ -64,7 +63,7 @@ public class TaskManager {
         try {
             int idx = Integer.parseInt(sc.nextLine()) - 1;
             if (idx >= 0 && idx < getTasks().size()) {
-                getTasks().remove(idx);
+                currentUser.removeTask(idx);
                 System.out.println("Задача удалена");
             }
             else {
