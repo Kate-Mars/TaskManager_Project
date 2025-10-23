@@ -20,7 +20,7 @@ public class Main {
                 case "3": manager.deleteTask(sc); break;
                 case "4": manager.editTask(sc); break;
                 case "5": manager.sortTasks(sc); break;
-                case "6": break;
+                case "6": manager.searchTasks(sc); break;
                 case "7": return;
                 default: System.out.println("Неверный ввод");
             }

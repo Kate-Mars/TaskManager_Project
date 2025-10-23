@@ -198,6 +198,69 @@ public class TaskManager {
         showTasks();
     }
 
+    public void searchTasks(Scanner sc) {
+        if (getTasks().isEmpty()) {
+            System.out.println("Нет задач для поиска");
+            return;
+        }
+
+        System.out.println("Искать задачи по: ");
+        System.out.println("1. Названию");
+        System.out.println("2. Описанию");
+        System.out.println("3. Приоритету");
+        System.out.print("Выбор: ");
+
+        String choice = sc.nextLine();
+        List<Task> results = new ArrayList<>();
+
+        switch (choice) {
+            case "1":
+                System.out.print("Введите название для поиска: ");
+                String title = sc.nextLine().toLowerCase();
+                for (Task task : getTasks()) {
+                    if (task.getTitle().toLowerCase().contains(title)) {
+                        results.add(task);
+                    }
+                }
+                break;
+            case "2":
+                System.out.print("Введите описание для поиска: ");
+                String desc = sc.nextLine().toLowerCase();
+                for (Task task : getTasks()) {
+                    if (task.getDescription().toLowerCase().contains(desc)) {
+                        results.add(task);
+                    }
+                }
+                break;
+            case "3":
+                System.out.print("Введите приоритет для поиска (1-5): ");
+                try {
+                    int priority = Integer.parseInt(sc.nextLine());
+                    for (Task task : getTasks()) {
+                        if (task.getPriority() == priority) {
+                            results.add(task);
+                        }
+                    }
+                } catch (NumberFormatException e) {
+                    System.out.println("Введите корректный приоритет - от 1 до 5");
+                    return;
+                }
+                break;
+            default:
+                System.out.println("Неверный выбор");
+                return;
+        }
+
+        if (results.isEmpty()) {
+            System.out.println("Задачи не найдены");
+        } else {
+            System.out.println("Найдено задач: " + results.size());
+            for (int i = 0; i < results.size(); i++) {
+                System.out.println((i + 1) + ". " + results.get(i));
+            }
+        }
+    }
+
     private boolean isValidDate(String date) {
         return parseDate(date) != null;
     }
