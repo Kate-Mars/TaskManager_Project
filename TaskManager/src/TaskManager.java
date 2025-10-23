@@ -146,6 +146,58 @@ public class TaskManager {
         }
     }
 
+    public void sortTasks(Scanner sc) {
+        if (getTasks().isEmpty()) {
+            System.out.println("Нет задач для сортировки");
+            return;
+        }
+
+        System.out.println("Выберите тип сортировки: ");
+        System.out.println("1. Близжайшие к дедлайну");
+        System.out.println("2. Дальние к дедлайну");
+        System.out.println("3. Убывание приоритета");
+        System.out.println("4. Возрастание приоритета");
+        System.out.println("Ваш выбор: ");
+
+        String choice = sc.nextLine();
+        List<Task> tasks = getTasks();
+
+        switch (choice) {
+            case "1":
+                tasks.sort((task1, task2) -> {
+                    LocalDateTime duration1 = parseDate(task1.getDate());
+                    LocalDateTime duration2 = parseDate(task2.getDate());
+                    if (duration1 == null || duration2 == null) {
+                        return 0;
+                    }
+                    return duration1.compareTo(duration2);
+                });
+                System.out.println("Задачи успешно отсортированы по близжайшей дате к дедлайну");
+                break;
+            case "2":
+                tasks.sort((task1, task2) -> {
+                    LocalDateTime duration1 = parseDate(task1.getDate());
+                    LocalDateTime duration2 = parseDate(task2.getDate());
+                    if (duration1 == null || duration2 == null) return 0;
+                    return duration2.compareTo(duration1);
+                });
+                System.out.println("Задачи успешно отсортированы по дальней дате к дедлайну");
+                break;
+            case "3":
+                tasks.sort((task1, task2) -> Integer.compare(task2.getPriority(), task1.getPriority()));
+                System.out.println("Задачи успешно отсортированы по убыванию приоритета");
+                break;
+            case "4":
+                tasks.sort((task1, task2) -> Integer.compare(task1.getPriority(), task2.getPriority()));
+                System.out.println("Задачи успешно отсортированы по возрастанию приоритета");
+                break;
+            default:
+                System.out.println("Необходимо выбрать опцию от 1 до 4");
+                return;
+        }
+        showTasks();
+    }
+
     private boolean isValidDate(String date) {
         return parseDate(date) != null;
     }
