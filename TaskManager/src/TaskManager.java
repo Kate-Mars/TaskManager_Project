@@ -56,6 +56,25 @@ public class TaskManager {
         }
     }
 
+    public void deleteTask(Scanner sc) {
+        showTasks();
+        if (getTasks().isEmpty()) return;
+
+        System.out.print("Введите номер для удаления: ");
+        try {
+            int idx = Integer.parseInt(sc.nextLine()) - 1;
+            if (idx >= 0 && idx < getTasks().size()) {
+                getTasks().remove(idx);
+                System.out.println("Задача удалена");
+            }
+            else {
+                System.out.println("Неверный номер");
+            }
+        } catch (NumberFormatException e) {
+            System.out.println("Ввведите корректный номер задачи");
+        }
+    }
+
     private boolean isValidDate(String date) {
         return parseDate(date) != null;
     }

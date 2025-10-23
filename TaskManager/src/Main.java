@@ -17,7 +17,7 @@ public class Main {
             switch (cmd) {
                 case "1": manager.addTask(sc); break;
                 case "2": manager.showTasks(); break;
-                case "3": break;
+                case "3": manager.deleteTask(sc); break;
                 case "4": break;
                 case "5": break;
                 case "6": break;
