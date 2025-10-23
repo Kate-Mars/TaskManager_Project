@@ -18,7 +18,7 @@ public class Main {
                 case "1": manager.addTask(sc); break;
                 case "2": manager.showTasks(); break;
                 case "3": manager.deleteTask(sc); break;
-                case "4": break;
+                case "4": manager.editTask(sc); break;
                 case "5": break;
                 case "6": break;
                 case "7": return;

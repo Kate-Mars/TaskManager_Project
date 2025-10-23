@@ -75,6 +75,77 @@ public class TaskManager {
         }
     }
 
+    public void editTask(Scanner sc) {
+        showTasks();
+        if (getTasks().isEmpty()){
+            return;
+        }
+
+        System.out.print("Введите номер задачи, которую вы хотите отредактировать: ");
+        try {
+            int idx = Integer.parseInt(sc.nextLine()) - 1;
+            if (idx < 0 || idx >= getTasks().size()) {
+                System.out.println("Неверный номер");
+                return;
+            }
+
+            Task task = getTasks().get(idx);
+
+            System.out.println("Что необходимо изменить?");
+            System.out.println("1 - Название");
+            System.out.println("2 - Описание");
+            System.out.println("3 - Дедлайн");
+            System.out.println("4 - Приоритет");
+            System.out.println("Ваш выбор: ");
+
+            String choice = sc.nextLine();
+            switch (choice) {
+                case "1":
+                    System.out.println("Введите новое название: ");
+                    task.setTitle(sc.nextLine());
+                    break;
+                case "2":
+                    System.out.println("Введите новое описание: ");
+                    task.setDescription(sc.nextLine());
+                    break;
+                case "3":
+                    String duration = "";
+                    while (true) {
+                        System.out.println("Введите новый срок (dd.MM.yyyy HH:mm): ");
+                        duration = sc.nextLine();
+                        if (isValidDate(duration)){
+                            break;
+                        }
+                        System.out.println("Неверный формат даты. Попробуйте ещё раз");
+                    }
+                    task.setDate(duration);
+                    break;
+                case "4":
+                    int priority = 0;
+                    while (true) {
+                        System.out.println("Введите новый приоритет (1-5): ");
+                        try {
+                            priority = Integer.parseInt(sc.nextLine());
+                            if (priority >= 1 && priority <= 5){
+                                break;
+                            }
+                            System.out.println("Приоритет - число от 1 до 5");
+                        } catch (NumberFormatException e) {
+                            System.out.println("Введите числовое значение от 1 до 5");
+                        }
+                    }
+                    task.setPriority(priority);
+                    break;
+                default:
+                    System.out.println("Неверный выбор. Необходимо выбрать опцию от 1 до 4");
+                    return;
+            }
+            System.out.println("Задача обновлена успешно");
+        } catch (NumberFormatException e) {
+            System.out.println("Ввведите числовое значение");
+        }
+    }
+
     private boolean isValidDate(String date) {
         return parseDate(date) != null;
     }
