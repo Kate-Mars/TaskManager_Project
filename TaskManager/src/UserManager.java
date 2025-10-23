@@ -3,7 +3,9 @@ import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
 import java.io.*;
 import java.lang.reflect.Type;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
 
 public class UserManager {
     private List<User> users;
@@ -16,59 +18,123 @@ public class UserManager {
     }
 
     public User login(Scanner sc) {
-        System.out.println("   АВТОРИЗАЦИЯ   ");
-        System.out.println("1. Войти");
-        System.out.println("2. Зарегистрироваться");
-        System.out.print("Выберите действие: ");
+        while (true) {
+            System.out.println("\n=== АВТОРИЗАЦИЯ ===");
+            System.out.println("1. Войти");
+            System.out.println("2. Зарегистрироваться");
+            System.out.println("3. Выйти из приложения");
+            System.out.print("Выберите действие: ");
 
-        String choice = sc.nextLine();
-        switch (choice) {
-            case "1":
-                return loginUser(sc);
-            case "2":
-                return registerUser(sc);
-            default:
-                System.out.println("Неверный выбор");
-                return null;
+            String choice = sc.nextLine();
+
+            switch (choice) {
+                case "1":
+                    User user = loginUser(sc);
+                    if (user != null) {
+                        return user;
+                    }
+                    break;
+                case "2":
+                    user = registerUser(sc);
+                    if (user != null) {
+                        return user;
+                    }
+                    break;
+                case "3":
+                    System.out.println("Выход из приложения. До свидания!");
+                    saveToFile();
+                    System.exit(0);
+                    break;
+                default:
+                    System.out.println("Неверный выбор. Попробуйте снова.");
+            }
         }
     }
 
     private User loginUser(Scanner sc) {
-        System.out.print("Введите имя пользователя: ");
-        String username = sc.nextLine();
-        System.out.print("Введите пароль: ");
-        String password = sc.nextLine();
+        while (true) {
+            System.out.println("\n--- Вход в систему ---");
+            System.out.println("Введите '!' для возврата в главное меню");
+            System.out.print("Введите имя пользователя: ");
+            String username = sc.nextLine();
 
-        for (User user : users) {
-            if (user.getUsername().equals(username) && user.getPassword().equals(password)) {
-                System.out.println("Успешный вход! Добро пожаловать, " + username);
+            if ("!".equals(username)) { return null; }
+
+            User foundUser = null;
+            for (User user : users) {
+                if (user.getUsername().equals(username)) {
+                    foundUser = user;
+                    break;
+                }
+            }
+
+            if (foundUser == null) {
+                System.out.println("Пользователь с таким именем не найден. Попробуйте снова.");
+                continue;
+            }
+
+            return enterPassword(sc, foundUser);
+        }
+    }
+
+    private User enterPassword(Scanner sc, User user) {
+        while (true) {
+            System.out.println("Введите '!' для возврата к выбору пользователя");
+            System.out.print("Введите пароль для пользователя '" + user.getUsername() + "': ");
+            String password = sc.nextLine();
+
+            if ("!".equals(password)) { return null; }
+
+            if (user.getPassword().equals(password)) {
+                System.out.println("Успешный вход! Добро пожаловать, " + user.getUsername());
                 return user;
+            } else {
+                System.out.println("Неверный пароль. Попробуйте снова.");
             }
         }
-
-        System.out.println("Неверное имя пользователя или пароль");
-        return null;
     }
 
     private User registerUser(Scanner sc) {
-        System.out.print("Введите новое имя пользователя: ");
-        String username = sc.nextLine();
+        System.out.println("\n--- Регистрация ---");
+        System.out.println("Введите '!' для возврата в главное меню");
 
-        // Проверка на уникальность имени
-        for (User user : users) {
-            if (user.getUsername().equals(username)) {
-                System.out.println("Пользователь с таким именем уже существует");
-                return null;
+        while (true) {
+            System.out.print("Введите новое имя пользователя: ");
+            String username = sc.nextLine();
+
+            if ("!".equals(username)) { return null; }
+
+            if (username.isEmpty()) {
+                System.out.println("Имя пользователя не может быть пустым.");
+                continue;
             }
+
+            boolean usernameExists = false;
+            for (User user : users) {
+                if (user.getUsername().equals(username)) {
+                    usernameExists = true;
+                    break;
+                }
+            }
+
+            if (usernameExists) {
+                System.out.println("Пользователь с таким именем уже существует. Попробуйте другое имя.");
+                continue;
+            }
+
+            System.out.print("Введите пароль: ");
+
+            String password = sc.nextLine();
+            if (password.isEmpty()) {
+                System.out.println("Пароль не может быть пустым.");
+                continue;
+            }
+
+            User newUser = new User(username, password);
+            users.add(newUser);
+            System.out.println("Пользователь " + username + " успешно зарегистрирован!");
+            return newUser;
         }
-
-        System.out.print("Введите пароль: ");
-        String password = sc.nextLine();
-
-        User newUser = new User(username, password);
-        users.add(newUser);
-        System.out.println("Пользователь " + username + " успешно зарегистрирован!");
-        return newUser;
     }
 
     public void loadFromFile() {

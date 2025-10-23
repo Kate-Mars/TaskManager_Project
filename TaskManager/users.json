@@ -1,0 +1,37 @@
+[
+  {
+    "username": "Kate",
+    "password": "123456789",
+    "tasks": [
+      {
+        "title": "Cat",
+        "description": "",
+        "date": "24.10.2025 10:00",
+        "priority": 1
+      },
+      {
+        "title": "Dog",
+        "description": "",
+        "date": "24.10.2025 8:00",
+        "priority": 1
+      }
+    ]
+  },
+  {
+    "username": "Admin",
+    "password": "123456789",
+    "tasks": [
+      {
+        "title": "Dog",
+        "description": "",
+        "date": "24.10.2025 10:00",
+        "priority": 2
+      }
+    ]
+  },
+  {
+    "username": "Admin1",
+    "password": "qwerty",
+    "tasks": []
+  }
+]

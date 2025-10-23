@@ -6,6 +6,7 @@ import java.util.*;
 public class TaskManager {
     private final User currentUser;
     public TaskManager(User currentUser) { this.currentUser = currentUser; }
+    public User getCurrentUser() { return currentUser; }
     public List<Task> getTasks() { return currentUser.getTasks(); }
 
     public void addTask(Scanner sc) {
