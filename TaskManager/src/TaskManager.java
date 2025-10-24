@@ -16,13 +16,25 @@ public class TaskManager {
         String description = sc.nextLine();
 
         String duration = "";
+        LocalDateTime deadline = null;
         while (true) {
             System.out.print("Срок (ДД.ММ.ГГГГ ЧЧ:ММ): ");
             duration = sc.nextLine();
             if (isValidDate(duration)) {
+                deadline = parseDate(duration);
                 break;
             } else {
                 System.out.print("Неверный формат. Пропробуйте ещё раз\n");
+            }
+        }
+
+        if (deadline != null && deadline.isBefore(LocalDateTime.now())) {
+            System.out.println("Внимание: вы устанавливаете дедлайн в прошлом");
+            System.out.print("Вы уверены, что хотите продолжить? (Y/n): ");
+            String confirmation = sc.nextLine().toLowerCase();
+            if (!confirmation.equals("Y") && !confirmation.equals("y")) {
+                System.out.println("Создание задачи отменено.");
+                return;
             }
         }
 
@@ -113,13 +125,24 @@ public class TaskManager {
                     break;
                 case "3":
                     String duration = "";
+                    LocalDateTime newDeadline = null;
                     while (true) {
                         System.out.println("Введите новый срок (dd.MM.yyyy HH:mm): ");
                         duration = sc.nextLine();
                         if (isValidDate(duration)){
+                            newDeadline = parseDate(duration);
                             break;
                         }
                         System.out.println("Неверный формат даты. Попробуйте ещё раз");
+                    }
+                    if (newDeadline != null && newDeadline.isBefore(LocalDateTime.now())) {
+                        System.out.println("Внимание: вы устанавливаете дедлайн в прошлом!");
+                        System.out.print("Вы уверены, что хотите продолжить? (Y/n): ");
+                        String confirmation = sc.nextLine().toLowerCase();
+                        if (!confirmation.equals("Y") && !confirmation.equals("y")) {
+                            System.out.println("Изменение дедлайна отменено.");
+                            break;
+                        }
                     }
                     task.setDate(duration);
                     break;
