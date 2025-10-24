@@ -1,3 +1,20 @@
+/**
+ * Manages tasks for a specific user.
+ * Provides comprehensive task operations with data validation.
+ *
+ * Core functionality:
+ * - Add new tasks with input validation
+ * - Display all tasks with current time
+ * - Edit existing tasks (title, description, deadline, priority)
+ * - Delete tasks by index
+ * - Sort tasks by deadline (ascending/descending) and priority (ascending/descending)
+ * - Search tasks by title, description, or priority
+ * - Date validation and parsing for multiple formats
+ *
+ * All operations affect the user instance passed to the constructor.
+ *
+ * @version 1.0
+ */
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;

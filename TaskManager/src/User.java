@@ -1,3 +1,19 @@
+/**
+ * Represents a user in the system.
+ * Stores user credentials and maintains a personal task list.
+ *
+ * Class fields:
+ * - username: unique user identifier
+ * - password: authentication password
+ * - tasks: collection of user's tasks
+ *
+ * Provides task management methods:
+ * - Add new tasks to personal collection
+ * - Remove tasks by index
+ * - Retrieve tasks by index
+ *
+ * @version 1.0
+ */
 import java.util.ArrayList;
 import java.util.List;
 

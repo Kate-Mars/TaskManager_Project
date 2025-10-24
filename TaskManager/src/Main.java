@@ -1,3 +1,21 @@
+//COMMIT WITH !!! WORKING ONLY CONSOL VERSION OF PROGRAMM
+/**
+ * Main application class for To-Do List system.
+ * Contains program entry point and orchestrates the main application flow.
+ *
+ * Application workflow:
+ * 1. Initialize system components and Scanner
+ * 2. Load user data from persistent storage
+ * 3. User authentication/registration loop
+ * 4. Main task management menu
+ * 5. Automatic data persistence on changes
+ * 6. Graceful shutdown with data saving
+ *
+ * Coordinates interactions between all system components.
+ * Provides console-based user interface.
+ *
+ * @version 1.0
+ */
 import java.util.Scanner;
 
 public class Main {

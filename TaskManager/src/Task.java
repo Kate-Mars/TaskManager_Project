@@ -1,3 +1,21 @@
+/**
+ * Represents a single task in the system.
+ * Contains task metadata and provides formatted output with time calculations.
+ *
+ * Stored information:
+ * - title: task name
+ * - description: detailed task description
+ * - date: deadline in string format
+ * - priority: importance level (1-5 scale)
+ *
+ * Key features:
+ * - Automatically calculates and formats time until/since deadline
+ * - Supports Russian language pluralization for time units
+ * - Handles multiple date formats during parsing
+ * - Provides human-readable deadline status
+ *
+ * @version 1.0
+ */
 import jdk.jfr.Description;
 import java.time.LocalDateTime;
 import java.time.Duration;

@@ -1,3 +1,16 @@
+/**
+ * Manages user authentication and registration.
+ * Handles user login, registration, and persistence of user data to JSON file.
+ *
+ * Main features:
+ * - New user registration with username uniqueness validation
+ * - User login with credentials verification
+ * - Automatic loading of user data from users.json on startup
+ * - Automatic saving of user data to users.json on changes
+ * - Secure password handling (Note: passwords stored in plain text)
+ *
+ * @version 1.0
+ */
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
