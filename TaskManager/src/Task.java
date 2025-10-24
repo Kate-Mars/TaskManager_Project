@@ -31,12 +31,15 @@ public class Task {
     public void setPriority(int priority) { this.priority = priority; }
 
     private String formatTimeDiff() {
+        TaskManager taskManager = new TaskManager(null);
         try {
-            LocalDateTime deadline = parseDate(this.date);
+            LocalDateTime deadline = taskManager.parseDate(this.date);
             if (deadline == null) { return "Неверный формат даты"; }
+
             LocalDateTime now = LocalDateTime.now();
             Duration duration = Duration.between(now, deadline);
             long seconds = duration.getSeconds();
+
             if (Math.abs(seconds) < 60) { return seconds >= 0 ? "через несколько секунд" : "несколько секунд назад"; }
             long minutes = Math.abs(seconds / 60);
             long hours = Math.abs(seconds / 3600);
@@ -50,7 +53,6 @@ public class Task {
                     return String.format("через %d %s", minutes, getMinutes(minutes));
                 }
             } else {
-                // Дедлайн в прошлом
                 if (days > 0) {
                     return String.format("%d %s назад", days, getDays(days));
                 } else if (hours > 0) {

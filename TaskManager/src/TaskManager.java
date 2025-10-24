@@ -287,11 +287,11 @@ public class TaskManager {
         }
     }
 
-    private boolean isValidDate(String date) {
+    public boolean isValidDate(String date) {
         return parseDate(date) != null;
     }
 
-    private LocalDateTime parseDate(String date) {
+    public LocalDateTime parseDate(String date) {
         String[] patterns = {
                 "dd.MM.yyyy H:mm", "dd.MM.yyyy HH:mm",
                 "d.M.yyyy H:mm", "d.M.yyyy HH:mm"
