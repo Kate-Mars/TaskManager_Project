@@ -1,0 +1,496 @@
+/* halloween.css - Хэллоуинская тема */
+
+/* Основные цвета хэллоуина */
+.root {
+    -fx-halloween-orange: #FF7518;
+    -fx-halloween-purple: #8B008B;
+    -fx-halloween-green: #32CD32;
+    -fx-halloween-dark: #2F2F2F;
+    -fx-halloween-gray: #1A1A1A;
+    -fx-pumpkin: #FF8C00;
+    -fx-ghost: #F8F8FF;
+}
+
+/* Фон приложения */
+.root, VBox, .scroll-pane, .scroll-pane .viewport {
+    -fx-background-color: #2F2F2F;
+}
+
+/* Улучшенные карточки с мягкой обводкой */
+.card-primary {
+    -fx-background-color: #2F2F2F;
+    -fx-background-radius: 16;
+    -fx-border-color: linear-gradient(to bottom, #FF7518, #FF8C00);
+    -fx-border-width: 1.5;
+    -fx-border-radius: 16;
+    -fx-effect: dropshadow(gaussian, rgba(255, 117, 24, 0.3), 20, 0.4, 0, 6);
+    -fx-padding: 25;
+}
+
+.card-purple {
+    -fx-background-color: #2F2F2F;
+    -fx-background-radius: 16;
+    -fx-border-color: linear-gradient(to bottom, #8B008B, #BA55D3);
+    -fx-border-width: 1.5;
+    -fx-border-radius: 16;
+    -fx-effect: dropshadow(gaussian, rgba(139, 0, 139, 0.3), 20, 0.4, 0, 6);
+    -fx-padding: 25;
+}
+
+.card-green {
+    -fx-background-color: #2F2F2F;
+    -fx-background-radius: 16;
+    -fx-border-color: linear-gradient(to bottom, #32CD32, #00FF00);
+    -fx-border-width: 1.5;
+    -fx-border-radius: 16;
+    -fx-effect: dropshadow(gaussian, rgba(50, 205, 50, 0.3), 20, 0.4, 0, 6);
+    -fx-padding: 25;
+}
+
+/* Стили для заголовков */
+.title-main {
+    -fx-text-fill: linear-gradient(to bottom, #FF8C00, #FF7518);
+    -fx-font-size: 42px;
+    -fx-font-weight: 900;
+    -fx-font-family: 'Segoe UI', Arial, sans-serif;
+    -fx-effect: dropshadow(gaussian, rgba(255, 140, 0, 0.4), 10, 0.3, 2, 2);
+}
+
+.title-subtitle {
+    -fx-text-fill: #FFA500;
+    -fx-font-size: 20px;
+    -fx-font-weight: 600;
+    -fx-font-family: 'Segoe UI', Arial, sans-serif;
+    -fx-font-style: italic;
+    -fx-opacity: 0.9;
+}
+
+.emoji-container {
+    -fx-effect: dropshadow(gaussian, rgba(255, 117, 24, 0.8), 15, 0.5, 0, 5);
+}
+
+/* Основные стили кнопок */
+.button {
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+    -fx-background-radius: 12;
+    -fx-border-radius: 12;
+    -fx-padding: 12 20 12 20;
+    -fx-cursor: hand;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.4), 8, 0.2, 0, 3);
+}
+
+.button:hover {
+    -fx-scale-x: 1.05;
+    -fx-scale-y: 1.05;
+    -fx-effect: dropshadow(gaussian, rgba(255, 117, 24, 0.6), 15, 0.4, 0, 6);
+}
+
+.button:pressed {
+    -fx-scale-x: 0.95;
+    -fx-scale-y: 0.95;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.4), 5, 0.2, 0, 2);
+}
+
+/* Кнопки авторизации */
+.button.login {
+    -fx-background-color: linear-gradient(to bottom, #FF7518, #E65C00);
+    -fx-text-fill: #1A1A1A;
+    -fx-border-color: #FF8C00;
+    -fx-border-width: 2;
+    -fx-effect: dropshadow(gaussian, rgba(255, 117, 24, 0.6), 15, 0.5, 0, 5);
+}
+
+.button.login:hover {
+    -fx-background-color: linear-gradient(to bottom, #FF8C00, #FF7518);
+    -fx-text-fill: #000000;
+    -fx-border-color: #FFD700;
+}
+
+.button.register {
+    -fx-background-color: linear-gradient(to bottom, #8B008B, #6A0DAD);
+    -fx-text-fill: white;
+    -fx-border-color: #BA55D3;
+    -fx-border-width: 2;
+    -fx-effect: dropshadow(gaussian, rgba(139, 0, 139, 0.6), 15, 0.5, 0, 5);
+}
+
+.button.register:hover {
+    -fx-background-color: linear-gradient(to bottom, #9B30B3, #8B008B);
+    -fx-text-fill: #FFFFFF;
+    -fx-border-color: #DA70D6;
+}
+
+.button.test-login {
+    -fx-background-color: linear-gradient(to bottom, #32CD32, #228B22);
+    -fx-text-fill: #1A1A1A;
+    -fx-border-color: #00FF00;
+    -fx-border-width: 2;
+    -fx-effect: dropshadow(gaussian, rgba(50, 205, 50, 0.6), 15, 0.5, 0, 5);
+}
+
+.button.test-login:hover {
+    -fx-background-color: linear-gradient(to bottom, #00FF00, #32CD32);
+    -fx-text-fill: #000000;
+    -fx-border-color: #ADFF2F;
+}
+
+.button.exit {
+    -fx-background-color: linear-gradient(to bottom, #DC143C, #B22222);
+    -fx-text-fill: white;
+    -fx-border-color: #FF4500;
+    -fx-border-width: 2;
+    -fx-effect: dropshadow(gaussian, rgba(220, 20, 60, 0.6), 15, 0.5, 0, 5);
+}
+
+.button.exit:hover {
+    -fx-background-color: linear-gradient(to bottom, #FF0000, #DC143C);
+    -fx-text-fill: #FFFFFF;
+    -fx-border-color: #FF6347;
+}
+
+/* Кнопки операций */
+.button.add {
+    -fx-background-color: linear-gradient(to bottom, #32CD32, #228B22);
+    -fx-text-fill: #1A1A1A;
+    -fx-border-color: #00FF00;
+    -fx-border-width: 2;
+}
+
+.button.add:hover {
+    -fx-background-color: linear-gradient(to bottom, #00FF00, #32CD32);
+    -fx-text-fill: #000000;
+    -fx-border-color: #ADFF2F;
+}
+
+.button.edit {
+    -fx-background-color: linear-gradient(to bottom, #FF8C00, #FF7518);
+    -fx-text-fill: #1A1A1A;
+    -fx-border-color: #FFD700;
+    -fx-border-width: 2;
+}
+
+.button.edit:hover {
+    -fx-background-color: linear-gradient(to bottom, #FFD700, #FF8C00);
+    -fx-text-fill: #000000;
+    -fx-border-color: #FFFF00;
+}
+
+.button.delete {
+    -fx-background-color: linear-gradient(to bottom, #DC143C, #B22222);
+    -fx-text-fill: white;
+    -fx-border-color: #FF4500;
+    -fx-border-width: 2;
+}
+
+.button.delete:hover {
+    -fx-background-color: linear-gradient(to bottom, #FF0000, #DC143C);
+    -fx-text-fill: #FFFFFF;
+    -fx-border-color: #FF6347;
+}
+
+.button.search {
+    -fx-background-color: linear-gradient(to bottom, #8B008B, #6A0DAD);
+    -fx-text-fill: white;
+    -fx-border-color: #BA55D3;
+    -fx-border-width: 2;
+}
+
+.button.search:hover {
+    -fx-background-color: linear-gradient(to bottom, #9B30B3, #8B008B);
+    -fx-text-fill: #FFFFFF;
+    -fx-border-color: #DA70D6;
+}
+
+.button.sort {
+    -fx-background-color: linear-gradient(to bottom, #32CD32, #228B22);
+    -fx-text-fill: #1A1A1A;
+    -fx-border-color: #00FF00;
+    -fx-border-width: 2;
+}
+
+.button.sort:hover {
+    -fx-background-color: linear-gradient(to bottom, #00FF00, #32CD32);
+    -fx-text-fill: #000000;
+    -fx-border-color: #ADFF2F;
+}
+
+/* Улучшенные поля ввода */
+.text-field, .text-area, .combo-box, .date-picker {
+    -fx-background-color: #1A1A1A;
+    -fx-background-radius: 8;
+    -fx-border-width: 1.2;
+    -fx-border-color: #FF7518;
+    -fx-border-radius: 8;
+    -fx-padding: 10;
+    -fx-font-size: 14;
+    -fx-font-weight: bold;
+    -fx-text-fill: #FF8C00;
+    -fx-font-family: 'Segoe UI', Arial, sans-serif;
+    -fx-prompt-text-fill: #888888;
+}
+
+.text-field:focused, .text-area:focused, .combo-box:focused, .date-picker:focused {
+    -fx-border-color: #32CD32;
+    -fx-effect: dropshadow(gaussian, rgba(50, 205, 50, 0.2), 8, 0.3, 0, 0);
+}
+
+/* Большие поля ввода */
+.text-field-large {
+    -fx-pref-height: 50;
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+}
+
+.text-area-large {
+    -fx-pref-height: 120;
+    -fx-font-size: 16px;
+}
+
+.date-picker-large {
+    -fx-pref-height: 50;
+}
+
+/* Компактные комбобоксы для времени */
+.combo-time-small {
+    -fx-pref-width: 75;
+    -fx-pref-height: 42;
+    -fx-font-size: 14px;
+}
+
+.combo-time {
+    -fx-pref-width: 90;
+    -fx-pref-height: 50;
+}
+
+.combo-priority {
+    -fx-pref-width: 180;
+    -fx-pref-height: 50;
+}
+
+.combo-search {
+    -fx-pref-width: 220;
+    -fx-pref-height: 50;
+}
+
+.combo-sort {
+    -fx-pref-height: 50;
+}
+
+/* TextArea */
+.text-area .content {
+    -fx-background-color: #1A1A1A;
+    -fx-background-radius: 8;
+}
+
+.text-area:focused .content {
+    -fx-background-color: #1A1A1A;
+}
+
+/* ComboBox */
+/* Стили для текста в ComboBox */
+.combo-box .list-cell {
+    -fx-text-fill: #FF8C00;
+    -fx-padding: 8 12 8 12;
+}
+
+.combo-box .list-cell:filled:selected,
+.combo-box .list-cell:filled:hover {
+    -fx-background-color: #2F2F2F; /* тёмный фон вместо оранжевого */
+    -fx-text-fill: #FF8C00; /* ярко-оранжевый текст */
+}
+
+/* Стили для отображения выбранного значения в ComboBox */
+.combo-box .text-input {
+    -fx-text-fill: #FF8C00;
+    -fx-font-weight: bold;
+}
+
+/* Специальные стили для комбобоксов времени */
+/* Исправленные стили для комбобоксов времени */
+.combo-time-small {
+    -fx-pref-width: 120;
+    -fx-pref-height: 50;
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+}
+
+/* Стиль для отображения текста в комбобоксе */
+.combo-box .text {
+    -fx-text-fill: #FF8C00;
+    -fx-font-weight: bold;
+}
+
+/* Стиль для выбранного элемента - УБРАН ОРАНЖЕВЫЙ ФОН */
+.combo-box .list-cell:filled:selected {
+    -fx-background-color: #2F2F2F; /* темный фон вместо оранжевого */
+    -fx-text-fill: #FF8C00; /* оранжевый текст */
+}
+
+/* Стиль для элементов при наведении - УБРАН ОРАНЖЕВЫЙ ФОН */
+.combo-box .list-cell:filled:hover {
+    -fx-background-color: #1A1A1A; /* темный фон при наведении */
+    -fx-text-fill: #FF8C00; /* оранжевый текст */
+}
+
+/* Стиль для обычных элементов */
+.combo-box .list-cell:filled {
+    -fx-background-color: #2F2F2F;
+    -fx-text-fill: #FF8C00;
+}
+
+/* Убедимся, что prompt text виден */
+.combo-box .prompt-text {
+    -fx-text-fill: #888888;
+}
+
+.combo-box-popup .list-view {
+    -fx-background-color: #1A1A1A;
+    -fx-background-radius: 8;
+    -fx-border-width: 1;
+}
+
+/* Стиль для выбранного элемента в выпадающем списке - УБРАН ОРАНЖЕВЫЙ ФОН */
+.combo-box-popup .list-cell:selected {
+    -fx-background-color: #2F2F2F; /* темный фон вместо оранжевого */
+    -fx-text-fill: #FF8C00; /* оранжевый текст */
+}
+
+/* Стиль для элементов при наведении в выпадающем списке - УБРАН ОРАНЖЕВЫЙ ФОН */
+.combo-box-popup .list-cell:hover {
+    -fx-background-color: #1A1A1A; /* темный фон при наведении */
+    -fx-text-fill: #FF8C00; /* оранжевый текст */
+}
+
+
+/* DatePicker */
+.date-picker .arrow-button {
+    -fx-background-color: transparent;
+}
+
+.date-picker .arrow {
+    -fx-background-color: #FF8C00;
+}
+
+.date-picker-popup {
+    -fx-background-color: #2F2F2F;
+    -fx-background-radius: 8;
+    -fx-border-radius: 8;
+    -fx-border-color: #FF7518;
+}
+
+.date-picker-popup .month-year-pane {
+    -fx-background-color: #8B008B;
+}
+
+.date-picker-popup .month-year-pane .label {
+    -fx-text-fill: white;
+}
+
+.date-picker-popup .spinner .button {
+    -fx-background-color: transparent;
+    -fx-text-fill: #FF8C00;
+}
+
+.date-picker-popup .date-cell {
+    -fx-background-color: transparent;
+    -fx-text-fill: #FF8C00;
+}
+
+/* УБРАН ОРАНЖЕВЫЙ ФОН для ячеек даты при наведении */
+.date-picker-popup .date-cell:hover {
+    -fx-background-color: #1A1A1A; /* темный фон вместо оранжевого */
+    -fx-text-fill: #FF8C00; /* оранжевый текст */
+}
+
+/* УБРАН ОРАНЖЕВЫЙ ФОН для выбранной даты */
+.date-picker-popup .date-cell:selected {
+    -fx-background-color: #2F2F2F; /* темный фон вместо оранжевого */
+    -fx-text-fill: #FF8C00; /* оранжевый текст */
+    -fx-border-color: #FF7518; /* оранжевая обводка вместо фона */
+    -fx-border-width: 1.5;
+}
+
+/* Улучшенная таблица */
+.table-view {
+    -fx-background-color: transparent;
+    -fx-border-width: 1.5;
+    -fx-border-color: linear-gradient(to bottom, #FF7518, #FF8C00);
+    -fx-border-radius: 12;
+    -fx-font-size: 14px;
+    -fx-max-width: infinity; /* Растягивает таблицу на всю ширину */
+}
+
+.table-view .column-header-background {
+    -fx-background-color: linear-gradient(to bottom, #8B008B, #6A0DAD);
+    -fx-border-color: #FF7518;
+    -fx-border-width: 0 0 1.5 0;
+}
+
+.table-view .column-header {
+    -fx-background-color: transparent;
+    -fx-border-color: rgba(255, 117, 24, 0.3);
+    -fx-border-width: 0 1 0 0;
+    -fx-padding: 12 8 12 8;
+}
+
+.table-view .column-header .label {
+    -fx-text-fill: #FF8C00;
+    -fx-font-size: 13px;
+    -fx-font-weight: bold;
+    -fx-alignment: CENTER_LEFT;
+}
+
+.table-view .table-row-cell {
+    -fx-background-color: #2F2F2F;
+    -fx-border-color: #FF7518;
+    -fx-border-width: 0 0 1 0;
+    -fx-padding: 12 10 12 10;
+}
+
+.table-view .table-row-cell:odd {
+    -fx-background-color: #1A1A1A;
+}
+
+/* УБРАН ОРАНЖЕВЫЙ ФОН для выбранной строки таблицы */
+.table-view .table-row-cell:selected {
+    -fx-background-color: #2F2F2F; /* темный фон вместо оранжевого */
+    -fx-text-fill: #FF8C00; /* оранжевый текст */
+    -fx-border-color: #32CD32; /* зеленая обводка для выделения */
+    -fx-border-width: 1.5;
+}
+
+.table-view .table-cell {
+    -fx-text-fill: #FF8C00;
+    -fx-font-size: 14px;
+    -fx-padding: 12 10 12 10;
+    -fx-border-width: 0;
+    -fx-alignment: CENTER_LEFT;
+}
+
+.table-view .table-row-cell:selected .table-cell {
+    -fx-text-fill: #FF8C00; /* оранжевый текст вместо черного */
+}
+
+/* Счетчик задач */
+.task-counter {
+    -fx-text-fill: #FFA500;
+    -fx-font-size: 16px;
+    -fx-font-weight: 700;
+    -fx-background-color: rgba(255, 117, 24, 0.15);
+    -fx-background-radius: 12;
+    -fx-padding: 6 12 6 12;
+    -fx-border-color: rgba(255, 117, 24, 0.5);
+    -fx-border-width: 1;
+    -fx-border-radius: 12;
+}
+
+/* ScrollPane */
+.scroll-pane {
+    -fx-background: transparent;
+    -fx-border-width: 0;
+}
+
+.scroll-pane .viewport {
+    -fx-background-color: transparent;
+}

@@ -1,5 +1,9 @@
 package com.example.taskmanagerfx.model;
-/*
+
+import java.util.ArrayList;
+import java.util.List;
+
+/**
  * Represents a user in the system.
  * Stores user credentials and maintains a personal task list.
  *
@@ -13,15 +17,16 @@ package com.example.taskmanagerfx.model;
  * - Remove tasks by index
  * - Retrieve tasks by index
  *
- * @version 1.0
+ * @version 2.0
  */
-import java.util.ArrayList;
-import java.util.List;
-
 public class User {
     private String username;
     private String password;
     private List<Task> tasks;
+
+    public User() {
+        this.tasks = new ArrayList<>();
+    }
 
     public User(String username, String password) {
         this.username = username;
@@ -29,16 +34,17 @@ public class User {
         this.tasks = new ArrayList<>();
     }
 
-    // Getters
+    // Getters and Setters
     public String getUsername() { return username; }
-    public String getPassword() { return password; }
-    public List<Task> getTasks() { return tasks; }
-
-    // Setters
     public void setUsername(String username) { this.username = username; }
+
+    public String getPassword() { return password; }
     public void setPassword(String password) { this.password = password; }
+
+    public List<Task> getTasks() { return tasks; }
     public void setTasks(List<Task> tasks) { this.tasks = tasks; }
 
+    // Task management methods
     public void addTask(Task task) {
         tasks.add(task);
     }
@@ -54,5 +60,9 @@ public class User {
             return tasks.get(index);
         }
         return null;
+    }
+
+    public void removeTask(Task task) {
+        tasks.remove(task);
     }
 }

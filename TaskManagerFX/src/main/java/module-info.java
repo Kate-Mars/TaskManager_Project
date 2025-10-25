@@ -2,7 +2,6 @@ module com.example.taskmanagerfx {
     requires javafx.controls;
     requires javafx.fxml;
     requires com.google.gson;
-    requires jdk.jfr;
 
     opens com.example.taskmanagerfx to javafx.fxml;
     opens com.example.taskmanagerfx.model to com.google.gson, javafx.base;

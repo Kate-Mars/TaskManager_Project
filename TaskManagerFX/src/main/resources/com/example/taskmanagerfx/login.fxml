@@ -1,14 +1,62 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.effect.*?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="CONTROLLER_NAME"
-            prefHeight="400.0" prefWidth="600.0">
+<?import javafx.scene.shape.Circle?>
+<StackPane xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1"
+           fx:controller="com.example.taskmanagerfx.controllers.LoginController"
+           stylesheets="@halloween.css"
+           prefWidth="1920" prefHeight="1080">
 
-</AnchorPane>
+    <VBox spacing="30" alignment="CENTER">
+        <padding>
+            <Insets top="80" right="40" bottom="80" left="40"/>
+        </padding>
+
+        <!-- Header -->
+        <VBox spacing="20" alignment="CENTER">
+            <StackPane styleClass="emoji-container">
+                <Circle radius="45" fill="linear-gradient(to bottom, #FF7518, #E65C00)" opacity="0.9"/>
+                <Label text="🎃" style="-fx-text-fill: white; -fx-font-size: 36px; -fx-font-weight: bold;"/>
+            </StackPane>
+            <Label text="To-Do List" styleClass="title-main"/>
+            <Label text="Организуйте свои задачи" styleClass="title-subtitle"/>
+        </VBox>
+
+        <!-- Login Form -->
+        <VBox spacing="20" style="-fx-padding: 30;">
+            <effect>
+                <DropShadow color="rgba(234, 21, 226, 0.5)" radius="20" spread="0.3"/>
+            </effect>
+
+            <VBox spacing="15">
+                <!-- Username Field -->
+                <VBox spacing="8">
+                    <Label text="Имя пользователя" style="-fx-text-fill: #FF8C00; -fx-font-size: 20px; -fx-font-weight: bold;"/>
+                    <TextField fx:id="usernameField" promptText="Ввведите имя пользователя"
+                               style="-fx-padding: 15; -fx-font-size: 16;"/>
+                </VBox>
+
+                <!-- Password Field -->
+                <VBox spacing="8">
+                    <Label text="Пароль" style="-fx-text-fill: #FF8C00; -fx-font-size: 20px; -fx-font-weight: bold;"/>
+                    <PasswordField fx:id="passwordField" promptText="Введите пароль"
+                                   style="-fx-padding: 15; -fx-font-size: 16;"/>
+                </VBox>
+            </VBox>
+
+            <!-- Buttons -->
+            <HBox spacing="15" alignment="CENTER">
+                <Button styleClass="login" text="Войти" onAction="#handleLogin"/>
+                <Button styleClass="register" text="Зарегистрироваться" onAction="#handleRegister"/>
+                <Button styleClass="test-login" text="Тестовый вход" onAction="#handleTestLogin"/>
+                <Button styleClass="exit" text="Выход" onAction="#handleExit"/>
+            </HBox>
+        </VBox>
+    </VBox>
+</StackPane>
