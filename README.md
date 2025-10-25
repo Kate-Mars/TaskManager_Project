@@ -80,10 +80,10 @@ cd TaskManager
 ### Базовая компиляция (ручной classpath)
 ```
 # Compile all Java files
-javac -cp ".:gson-2.10.1.jar" *.java
+javac -cp ".:gson-2.12.3.jar" *.java
 
 # Run the application
-java -cp ".:gson-2.10.1.jar" Main
+java -cp ".:gson-2.12.3.jar" Main
 ```
 
 ### Использование IDE (рекомендуется)
@@ -167,3 +167,4 @@ d.M.yyyy H:mm
 ## При возникновении проблем с запуском
 1. Убедитесь в правильности установки Java и Gson
 2. Проверьте, что все файлы находятся в правильной директории
+
