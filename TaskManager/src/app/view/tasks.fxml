@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox xmlns:fx="http://javafx.com/fxml" fx:controller="app.controller.TaskController" spacing="10" alignment="CENTER" prefWidth="400" prefHeight="300">
+    <TableView fx:id="taskTable" prefHeight="200" prefWidth="350">
+        <columns>
+            <TableColumn fx:id="titleCol" text="Title" prefWidth="100"/>
+            <TableColumn fx:id="descCol" text="Description" prefWidth="100"/>
+            <TableColumn fx:id="dateCol" text="Date" prefWidth="75"/>
+            <TableColumn fx:id="priorityCol" text="Priority" prefWidth="75"/>
+        </columns>
+    </TableView>
+    <HBox spacing="10">
+        <Button fx:id="addTaskButton" text="Add Task" onAction="#handleAddTask"/>
+        <Button fx:id="deleteTaskButton" text="Delete Task" onAction="#handleDeleteTask"/>
+    </HBox>
+</VBox>
