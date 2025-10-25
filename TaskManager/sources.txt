@@ -1,8 +1,0 @@
-C:\Users\Admin\Desktop\TaskManager_Project\TaskManager\src\app\MainApp.java
-C:\Users\Admin\Desktop\TaskManager_Project\TaskManager\src\app\controller\LoginController.java
-C:\Users\Admin\Desktop\TaskManager_Project\TaskManager\src\app\controller\TaskController.java
-C:\Users\Admin\Desktop\TaskManager_Project\TaskManager\src\app\model\Task.java
-C:\Users\Admin\Desktop\TaskManager_Project\TaskManager\src\app\model\TaskManager.java
-C:\Users\Admin\Desktop\TaskManager_Project\TaskManager\src\app\model\User.java
-C:\Users\Admin\Desktop\TaskManager_Project\TaskManager\src\app\model\UserManager.java
-C:\Users\Admin\Desktop\TaskManager_Project\TaskManager\src\app\util\FileStorage.java
